@@ -1,6 +1,6 @@
 {
   "name": "tanstack_start_ts",
-  "homepage": "https://xueshadow.github.io/portfolio",
+  "homepage": "https://portfolio.pages.dev",
   "private": true,
   "sideEffects": false,
   "type": "module",
@@ -10,8 +10,7 @@
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",
-    "format": "prettier --write .",
-    "deploy": "gh-pages -d dist/client"
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@cloudflare/vite-plugin": "^1.25.5",

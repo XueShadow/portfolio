@@ -33,7 +33,5 @@ jobs:
       - name: Deploy to Cloudflare Pages
         run: |
           npx wrangler pages deploy dist/client \
-            --project-name portfolio \
-            --branch main \
-            --commit-hash ${{ github.sha }} \
-            --commit-message "${{ github.event.head_commit.message }}"
+            --project-name=portfolio \
+            --branch=main
