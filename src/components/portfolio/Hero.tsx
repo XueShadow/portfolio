@@ -1,10 +1,23 @@
 import { useEffect, useState } from "react";
-import { ArrowRight, ExternalLink, Github, Linkedin, Facebook, Instagram, Rocket, Briefcase, Users, Award } from "lucide-react";
-import { FaHtml5, FaCss3Alt, FaReact } from "react-icons/fa";
-import { SiJavascript, SiTailwindcss } from "react-icons/si";
-import hero from "@/assets/hero-portrait.jpg";
+import {
+  ArrowRight,
+  ExternalLink,
+  Github,
+  Rocket,
+  Briefcase,
+  Braces,
+  Paintbrush,
+  FileCode2,
+  Code2,
+  Cpu,
+  Award,
+} from "lucide-react";
 
-const titles = ["Senior Web Developer", "UI/UX Engineer", "Full-Stack Builder"];
+const titles = [
+  "Computer Science Student",
+  "Web Developer",
+  "Full-Stack Web Developer",
+];
 
 function useTypewriter(words: string[], speed = 80, pause = 1600) {
   const [text, setText] = useState("");
@@ -37,18 +50,38 @@ function useTypewriter(words: string[], speed = 80, pause = 1600) {
 }
 
 const techs = [
-  { Icon: FaHtml5, label: "HTML5", color: "text-orange-400" },
-  { Icon: FaCss3Alt, label: "CSS3", color: "text-blue-400" },
-  { Icon: SiJavascript, label: "JavaScript", color: "text-yellow-400" },
-  { Icon: FaReact, label: "React", color: "text-cyan-400" },
-  { Icon: SiTailwindcss, label: "Tailwind CSS", color: "text-sky-400" },
+  { Icon: FileCode2, label: "Frontend", color: "text-orange-400" },
+  { Icon: Paintbrush, label: "UI Styling", color: "text-blue-400" },
+  { Icon: Braces, label: "JavaScript", color: "text-yellow-400" },
+  { Icon: Cpu, label: "Web Apps", color: "text-cyan-400" },
+  { Icon: Code2, label: "Tailwind CSS", color: "text-sky-400" },
 ];
 
 const stats = [
-  { Icon: Rocket, value: "5+", label: "Years Experience", color: "text-sky-400" },
-  { Icon: Briefcase, value: "25+", label: "Projects Completed", color: "text-violet-400" },
-  { Icon: Users, value: "20+", label: "Happy Clients", color: "text-amber-400" },
-  { Icon: Award, value: "100%", label: "Client Satisfaction", color: "text-emerald-400" },
+  {
+    Icon: Rocket,
+    value: "Active",
+    label: "Learning and Building",
+    color: "text-sky-400",
+  },
+  {
+    Icon: Briefcase,
+    value: "Portfolio",
+    label: "Showcase Repositories",
+    color: "text-violet-400",
+  },
+  {
+    Icon: Code2,
+    value: "Student",
+    label: "Computer Science Track",
+    color: "text-amber-400",
+  },
+  {
+    Icon: Award,
+    value: "Open",
+    label: "Internship Opportunities",
+    color: "text-emerald-400",
+  },
 ];
 
 export function Hero() {
@@ -57,7 +90,10 @@ export function Hero() {
   return (
     <section id="home" className="relative pt-32 pb-12 md:pt-36 md:pb-20">
       {/* glow blobs */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden -z-10">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 overflow-hidden -z-10"
+      >
         <div className="absolute -top-10 -left-10 h-72 w-72 rounded-full bg-violet-600/30 blur-3xl animate-blob" />
         <div className="absolute top-40 right-0 h-96 w-96 rounded-full bg-cyan-500/20 blur-3xl animate-blob [animation-delay:-6s]" />
       </div>
@@ -76,14 +112,21 @@ export function Hero() {
             <span className="caret" />
           </p>
           <p className="mt-6 max-w-xl text-muted-foreground leading-relaxed">
-            I build modern, responsive and high-performance websites with clean code, great UI/UX, and best practices.
+            I build practical web projects focused on clean UI, useful APIs, and
+            continuous improvement through hands-on learning.
           </p>
 
           <div className="mt-7 flex flex-wrap gap-3">
-            <a href="#contact" className="inline-flex items-center gap-2 rounded-full btn-neon px-6 py-3 text-sm font-semibold text-white">
-              Hire Me <ArrowRight className="h-4 w-4" />
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 rounded-full btn-neon px-6 py-3 text-sm font-semibold text-white"
+            >
+              Contact Me <ArrowRight className="h-4 w-4" />
             </a>
-            <a href="#projects" className="inline-flex items-center gap-2 rounded-full glass px-6 py-3 text-sm font-semibold border border-border hover:bg-white/5 transition">
+            <a
+              href="#projects"
+              className="inline-flex items-center gap-2 rounded-full glass px-6 py-3 text-sm font-semibold border border-border hover:bg-white/5 transition"
+            >
               View My Work <ExternalLink className="h-4 w-4" />
             </a>
           </div>
@@ -91,12 +134,20 @@ export function Hero() {
           <div className="mt-8 flex items-center gap-3">
             <span className="text-xs text-muted-foreground">Let's connect</span>
             {[
-              { Icon: Github, href: "#" },
-              { Icon: Linkedin, href: "#" },
-              { Icon: Facebook, href: "#" },
-              { Icon: Instagram, href: "#" },
-            ].map(({ Icon, href }, idx) => (
-              <a key={idx} href={href} className="grid h-10 w-10 place-items-center rounded-lg glass border border-border hover:border-primary/60 hover:text-primary transition">
+              {
+                Icon: Github,
+                href: "https://github.com/XueShadow",
+                label: "GitHub profile",
+              },
+            ].map(({ Icon, href, label }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={label}
+                className="grid h-10 w-10 place-items-center rounded-lg glass border border-border hover:border-primary/60 hover:text-primary transition"
+              >
                 <Icon className="h-4 w-4" />
               </a>
             ))}
@@ -107,14 +158,27 @@ export function Hero() {
         <div className="relative">
           <div className="relative mx-auto max-w-md">
             <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-violet-500/40 via-fuchsia-500/20 to-cyan-500/30 blur-2xl" />
-            <div className="relative glass-strong neon-border rounded-3xl overflow-hidden">
-              <img src={hero} alt="Ji Monsales at coding workstation" width={1024} height={1024} className="w-full h-auto" />
+            <div className="relative glass-strong neon-border rounded-3xl p-8 md:p-10 text-center">
+              <div className="mx-auto grid h-28 w-28 place-items-center rounded-full bg-gradient-to-br from-violet-500/30 to-cyan-500/30 border border-border">
+                <Code2 className="h-10 w-10 text-primary" />
+              </div>
+              <h2 className="mt-4 text-xl font-semibold">
+                Project-Focused Portfolio
+              </h2>
+              <p className="mt-2 text-sm text-muted-foreground">
+                This section uses a neutral illustration because no personal
+                portrait image is included in this repository.
+              </p>
             </div>
 
             {/* floating tech badges */}
             <div className="hidden md:flex absolute -right-6 top-4 flex-col gap-2.5">
-              {techs.map(({ Icon, label, color }) => (
-                <div key={label} className="glass rounded-xl pl-2 pr-3 py-2 flex items-center gap-2 text-xs animate-float" style={{ animationDelay: `${Math.random() * 2}s` }}>
+              {techs.map(({ Icon, label, color }, idx) => (
+                <div
+                  key={label}
+                  className="glass rounded-xl pl-2 pr-3 py-2 flex items-center gap-2 text-xs animate-float"
+                  style={{ animationDelay: `${idx * 0.35}s` }}
+                >
                   <Icon className={`h-5 w-5 ${color}`} />
                   <span className="font-medium">{label}</span>
                 </div>
@@ -126,12 +190,16 @@ export function Hero() {
           <div className="mt-6 glass-strong neon-border rounded-2xl px-3 py-4 grid grid-cols-2 md:grid-cols-4 gap-3">
             {stats.map(({ Icon, value, label, color }) => (
               <div key={label} className="flex items-center gap-3 px-2">
-                <span className={`grid h-9 w-9 place-items-center rounded-lg glass ${color}`}>
+                <span
+                  className={`grid h-9 w-9 place-items-center rounded-lg glass ${color}`}
+                >
                   <Icon className="h-4 w-4" />
                 </span>
                 <div>
                   <div className="font-bold text-lg leading-none">{value}</div>
-                  <div className="text-[10.5px] text-muted-foreground mt-0.5">{label}</div>
+                  <div className="text-[10.5px] text-muted-foreground mt-0.5">
+                    {label}
+                  </div>
                 </div>
               </div>
             ))}
