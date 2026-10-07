@@ -1,12 +1,12 @@
 import { Code2, Palette, Globe, Plug, Gauge, Headphones, ArrowRight, LayoutGrid } from "lucide-react";
 
 const services = [
-  { Icon: Code2, title: "Web Development", desc: "Custom websites and web applications using modern technologies.", color: "from-violet-500 to-fuchsia-500" },
-  { Icon: Palette, title: "UI/UX Design", desc: "Beautiful, responsive interfaces that provide great user experience.", color: "from-pink-500 to-rose-500" },
-  { Icon: Globe, title: "WordPress", desc: "Build, customize and optimize WordPress websites.", color: "from-sky-500 to-blue-500" },
-  { Icon: Plug, title: "API Integration", desc: "Integrate third-party APIs and payment gateways seamlessly.", color: "from-cyan-500 to-teal-500" },
-  { Icon: Gauge, title: "Performance Optimization", desc: "Improve website speed, SEO and overall performance.", color: "from-orange-500 to-amber-500" },
-  { Icon: Headphones, title: "Maintenance & Support", desc: "Ongoing support, updates and bug fixing.", color: "from-rose-500 to-pink-500" },
+  { Icon: Code2, title: "Web Development", desc: "Build student and personal projects using Laravel, Blade, JavaScript, and Tailwind CSS.", color: "from-violet-500 to-fuchsia-500" },
+  { Icon: Palette, title: "UI Implementation", desc: "Create responsive user interfaces with reusable components and clean layouts.", color: "from-pink-500 to-rose-500" },
+  { Icon: Globe, title: "Full-Stack Learning", desc: "Practice end-to-end workflows: frontend, backend logic, and database integration.", color: "from-sky-500 to-blue-500" },
+  { Icon: Plug, title: "API Integration", desc: "Consume and build REST APIs for project features and external service data.", color: "from-cyan-500 to-teal-500" },
+  { Icon: Gauge, title: "Performance Basics", desc: "Apply practical improvements for speed, accessibility, and maintainable code.", color: "from-orange-500 to-amber-500" },
+  { Icon: Headphones, title: "Continuous Improvement", desc: "Actively improve projects through feedback, debugging, and iteration.", color: "from-rose-500 to-pink-500" },
 ];
 
 export function Services() {
@@ -17,7 +17,7 @@ export function Services() {
           <div className="flex items-center justify-between mb-6">
             <h2 className="font-heading text-2xl font-bold flex items-center gap-2">
               <span className="grid h-8 w-8 place-items-center rounded-lg btn-neon text-white"><LayoutGrid className="h-4 w-4" /></span>
-              What I Do
+              Focus Areas
             </h2>
             <a href="#contact" className="hidden sm:inline-flex items-center gap-1 text-sm text-primary hover:underline">
               View All Services <ArrowRight className="h-3.5 w-3.5" />

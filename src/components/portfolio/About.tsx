@@ -1,12 +1,11 @@
-import { User, Mail, Phone, MapPin, CheckCircle2, Sparkles, Eye, Zap, Users } from "lucide-react";
-import about from "@/assets/about-portrait.jpg";
+import { User, Github, Code2, Briefcase, CheckCircle2, Sparkles, Eye, Zap, Users } from "lucide-react";
 
 const info = [
   { Icon: User, label: "Name", value: "Ji Monsales" },
-  { Icon: Mail, label: "Email", value: "ji.monsales@email.com" },
-  { Icon: Phone, label: "Phone", value: "+63 912 345 6789" },
-  { Icon: MapPin, label: "Location", value: "Manila, Philippines" },
-  { Icon: CheckCircle2, label: "Availability", value: "Open to Work" },
+  { Icon: Briefcase, label: "Role", value: "Computer Science Student | Junior Web Developer" },
+  { Icon: Code2, label: "Focus", value: "Laravel, JavaScript, Python, REST APIs, GenAI" },
+  { Icon: Github, label: "GitHub", value: "github.com/XueShadow" },
+  { Icon: CheckCircle2, label: "Availability", value: "Open to internship and junior opportunities" },
 ];
 
 const traits = [
@@ -24,7 +23,7 @@ export function About() {
           <div className="relative mx-auto lg:mx-0">
             <div className="absolute inset-0 rounded-full bg-gradient-to-br from-violet-500 to-cyan-500 blur-2xl opacity-70" />
             <div className="relative h-44 w-44 rounded-full p-1 bg-gradient-to-br from-violet-400 via-fuchsia-500 to-cyan-400">
-              <img src={about} alt="Ji Monsales portrait" width={512} height={512} loading="lazy" className="h-full w-full rounded-full object-cover" />
+              <div className="h-full w-full rounded-full grid place-items-center bg-background/70 text-4xl font-bold">JM</div>
             </div>
           </div>
 
@@ -34,10 +33,11 @@ export function About() {
               About Me
             </h2>
             <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
-              I'm <span className="text-white font-semibold">Ji Monsales</span>, a Senior Web Developer with 5+ years of experience building modern, scalable and user-friendly web applications.
+              I'm <span className="text-white font-semibold">Ji Monsales</span>, a Computer Science student and junior web
+              developer building practical projects with modern web technologies.
             </p>
             <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-              I specialize in front-end development, responsive design, and performance optimization. I'm passionate about turning ideas into digital experiences that make an impact.
+              I focus on Laravel/PHP development, frontend implementation with JavaScript and Tailwind CSS, and Python projects for data and GenAI use cases.
             </p>
             <div className="mt-5 flex flex-wrap gap-2">
               {traits.map(({ Icon, label, color }) => (

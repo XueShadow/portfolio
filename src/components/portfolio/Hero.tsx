@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
-import { ArrowRight, ExternalLink, Github, Linkedin, Facebook, Instagram, Rocket, Briefcase, Users, Award } from "lucide-react";
+import { ArrowRight, ExternalLink, Github, Mail, Rocket, Briefcase, Users, Award } from "lucide-react";
 import { FaHtml5, FaCss3Alt, FaReact } from "react-icons/fa";
 import { SiJavascript, SiTailwindcss } from "react-icons/si";
-import hero from "@/assets/hero-portrait.jpg";
 
-const titles = ["Senior Web Developer", "UI/UX Engineer", "Full-Stack Builder"];
+const titles = ["Computer Science Student", "Junior Web Developer", "Laravel & Python Builder"];
 
 function useTypewriter(words: string[], speed = 80, pause = 1600) {
   const [text, setText] = useState("");
@@ -45,10 +44,10 @@ const techs = [
 ];
 
 const stats = [
-  { Icon: Rocket, value: "5+", label: "Years Experience", color: "text-sky-400" },
-  { Icon: Briefcase, value: "25+", label: "Projects Completed", color: "text-violet-400" },
-  { Icon: Users, value: "20+", label: "Happy Clients", color: "text-amber-400" },
-  { Icon: Award, value: "100%", label: "Client Satisfaction", color: "text-emerald-400" },
+  { Icon: Rocket, value: "6", label: "Featured Repositories", color: "text-sky-400" },
+  { Icon: Briefcase, value: "Student", label: "Career Stage", color: "text-violet-400" },
+  { Icon: Users, value: "Open", label: "Internship & Junior Roles", color: "text-amber-400" },
+  { Icon: Award, value: "Hands-on", label: "Project-Based Learning", color: "text-emerald-400" },
 ];
 
 export function Hero() {
@@ -76,12 +75,13 @@ export function Hero() {
             <span className="caret" />
           </p>
           <p className="mt-6 max-w-xl text-muted-foreground leading-relaxed">
-            I build modern, responsive and high-performance websites with clean code, great UI/UX, and best practices.
+            I build web applications and APIs with Laravel, JavaScript, Python, and modern frontend tooling while
+            continuously improving through practical project work.
           </p>
 
           <div className="mt-7 flex flex-wrap gap-3">
             <a href="#contact" className="inline-flex items-center gap-2 rounded-full btn-neon px-6 py-3 text-sm font-semibold text-white">
-              Hire Me <ArrowRight className="h-4 w-4" />
+              Contact Me <ArrowRight className="h-4 w-4" />
             </a>
             <a href="#projects" className="inline-flex items-center gap-2 rounded-full glass px-6 py-3 text-sm font-semibold border border-border hover:bg-white/5 transition">
               View My Work <ExternalLink className="h-4 w-4" />
@@ -91,12 +91,17 @@ export function Hero() {
           <div className="mt-8 flex items-center gap-3">
             <span className="text-xs text-muted-foreground">Let's connect</span>
             {[
-              { Icon: Github, href: "#" },
-              { Icon: Linkedin, href: "#" },
-              { Icon: Facebook, href: "#" },
-              { Icon: Instagram, href: "#" },
+              { Icon: Github, href: "https://github.com/XueShadow", label: "GitHub profile" },
+              { Icon: Mail, href: "https://github.com/XueShadow", label: "Contact via GitHub" },
             ].map(({ Icon, href }, idx) => (
-              <a key={idx} href={href} className="grid h-10 w-10 place-items-center rounded-lg glass border border-border hover:border-primary/60 hover:text-primary transition">
+              <a
+                key={idx}
+                href={href}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={idx === 0 ? "Open GitHub profile" : "Open GitHub profile for contact"}
+                className="grid h-10 w-10 place-items-center rounded-lg glass border border-border hover:border-primary/60 hover:text-primary transition"
+              >
                 <Icon className="h-4 w-4" />
               </a>
             ))}
@@ -108,13 +113,24 @@ export function Hero() {
           <div className="relative mx-auto max-w-md">
             <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-violet-500/40 via-fuchsia-500/20 to-cyan-500/30 blur-2xl" />
             <div className="relative glass-strong neon-border rounded-3xl overflow-hidden">
-              <img src={hero} alt="Ji Monsales at coding workstation" width={1024} height={1024} className="w-full h-auto" />
+              <div className="aspect-square w-full p-8 flex flex-col justify-center text-center bg-gradient-to-br from-violet-500/30 via-fuchsia-500/20 to-cyan-500/30">
+                <span className="mx-auto grid h-24 w-24 place-items-center rounded-full glass text-3xl font-bold">
+                  JM
+                </span>
+                <p className="mt-4 text-sm text-muted-foreground">
+                  Computer Science student portfolio focused on practical Laravel, API, and Python projects.
+                </p>
+              </div>
             </div>
 
             {/* floating tech badges */}
             <div className="hidden md:flex absolute -right-6 top-4 flex-col gap-2.5">
-              {techs.map(({ Icon, label, color }) => (
-                <div key={label} className="glass rounded-xl pl-2 pr-3 py-2 flex items-center gap-2 text-xs animate-float" style={{ animationDelay: `${Math.random() * 2}s` }}>
+              {techs.map(({ Icon, label, color }, index) => (
+                <div
+                  key={label}
+                  className="glass rounded-xl pl-2 pr-3 py-2 flex items-center gap-2 text-xs animate-float"
+                  style={{ animationDelay: `${index * 0.4}s` }}
+                >
                   <Icon className={`h-5 w-5 ${color}`} />
                   <span className="font-medium">{label}</span>
                 </div>

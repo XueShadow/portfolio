@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Menu, X, Send } from "lucide-react";
 
 const links = [
@@ -13,6 +13,7 @@ const links = [
 export function Navbar() {
   const [active, setActive] = useState("home");
   const [open, setOpen] = useState(false);
+  const firstMobileLinkRef = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
     const sections = links.map((l) => document.getElementById(l.id)).filter(Boolean) as HTMLElement[];
@@ -28,6 +29,17 @@ export function Navbar() {
     return () => obs.disconnect();
   }, []);
 
+  useEffect(() => {
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") setOpen(false);
+    }
+    if (open) {
+      window.addEventListener("keydown", onKeyDown);
+      firstMobileLinkRef.current?.focus();
+    }
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [open]);
+
   return (
     <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[min(1200px,calc(100%-1.5rem))]">
       <nav className="glass-strong neon-border rounded-2xl px-4 md:px-5 py-3 flex items-center justify-between">
@@ -36,7 +48,7 @@ export function Navbar() {
           <div className="hidden sm:block leading-tight">
             <div className="font-heading font-semibold text-sm">Ji Monsales</div>
             <div className="text-[11px] text-muted-foreground flex items-center gap-1.5">
-              Senior Web Developer
+              Computer Science Student
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_2px_oklch(0.78_0.2_150/0.7)]" />
             </div>
           </div>
@@ -68,7 +80,10 @@ export function Navbar() {
             Let's Talk <Send className="h-3.5 w-3.5" />
           </a>
           <button
-            aria-label="Toggle menu"
+            type="button"
+            aria-label="Toggle navigation menu"
+            aria-controls="mobile-navigation-menu"
+            aria-expanded={open}
             onClick={() => setOpen((o) => !o)}
             className="lg:hidden grid place-items-center h-10 w-10 rounded-lg glass"
           >
@@ -78,11 +93,15 @@ export function Navbar() {
       </nav>
 
       {open && (
-        <div className="lg:hidden mt-2 glass-strong neon-border rounded-2xl p-3 animate-in fade-in slide-in-from-top-2">
+        <div
+          id="mobile-navigation-menu"
+          className="lg:hidden mt-2 glass-strong neon-border rounded-2xl p-3 animate-in fade-in slide-in-from-top-2"
+        >
           <ul className="grid gap-1">
-            {links.map((l) => (
+            {links.map((l, index) => (
               <li key={l.id}>
                 <a
+                  ref={index === 0 ? firstMobileLinkRef : undefined}
                   href={`#${l.id}`}
                   onClick={() => setOpen(false)}
                   className={`block px-3 py-2 rounded-lg text-sm ${
