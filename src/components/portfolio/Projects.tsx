@@ -1,26 +1,41 @@
-import { ArrowRight, ExternalLink, Github, FolderOpen, Eye } from "lucide-react";
-import dashboard from "@/assets/project-dashboard.jpg";
-import ecommerce from "@/assets/project-ecommerce.jpg";
-import travel from "@/assets/project-travel.jpg";
+import { ArrowRight, ExternalLink, Github, FolderOpen } from "lucide-react";
 
 const projects = [
   {
-    title: "TaskFlow Dashboard",
-    desc: "A responsive project management dashboard with dark mode and team collaboration.",
-    img: dashboard,
-    tags: ["React", "Node.js", "MongoDB"],
+    title: "portfolio",
+    desc: "Personal portfolio built with TanStack Start and deployed to Cloudflare.",
+    tags: ["TypeScript", "React", "Tailwind CSS"],
+    githubUrl: "https://github.com/XueShadow/portfolio",
   },
   {
-    title: "E-Commerce Website",
-    desc: "Modern e-commerce website with cart, payment integration and admin panel.",
-    img: ecommerce,
-    tags: ["Next.js", "Stripe", "Tailwind CSS"],
+    title: "laravel",
+    desc: "Laravel project repository demonstrating PHP backend and Blade workflows.",
+    tags: ["PHP", "Laravel", "Blade"],
+    githubUrl: "https://github.com/XueShadow/laravel",
   },
   {
-    title: "Travel Website",
-    desc: "A beautiful travel website with animations, locations and blog section.",
-    img: travel,
-    tags: ["HTML", "CSS", "JavaScript"],
+    title: "pre-enrollment",
+    desc: "Enrollment-focused web project with role-based application requirements.",
+    tags: ["Laravel", "PHP", "SQL"],
+    githubUrl: "https://github.com/XueShadow/pre-enrollment",
+  },
+  {
+    title: "FastAPI",
+    desc: "Python API project exploring backend structure and authentication patterns.",
+    tags: ["Python", "FastAPI", "REST API"],
+    githubUrl: "https://github.com/XueShadow/FastAPI",
+  },
+  {
+    title: "dakee",
+    desc: "Data and AI-oriented project leveraging Python ecosystem tools.",
+    tags: ["Python", "Streamlit", "Pandas"],
+    githubUrl: "https://github.com/XueShadow/dakee",
+  },
+  {
+    title: "Activity-3_Building-a-GenAI-App",
+    desc: "GenAI app project using data analysis and visualization components.",
+    tags: ["GenAI", "Plotly", "Hugging Face APIs"],
+    githubUrl: "https://github.com/XueShadow/Activity-3_Building-a-GenAI-App",
   },
 ];
 
@@ -34,23 +49,21 @@ export function Projects() {
               <span className="grid h-8 w-8 place-items-center rounded-lg btn-neon text-white"><FolderOpen className="h-4 w-4" /></span>
               My Recent Projects
             </h2>
-            <a href="#" className="hidden sm:inline-flex items-center gap-1 text-sm text-primary hover:underline">
-              View All Projects <ArrowRight className="h-3.5 w-3.5" />
+            <a
+              href="https://github.com/XueShadow?tab=repositories"
+              target="_blank"
+              rel="noreferrer"
+              className="hidden sm:inline-flex items-center gap-1 text-sm text-primary hover:underline"
+            >
+              View All Repositories <ArrowRight className="h-3.5 w-3.5" />
             </a>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {projects.map((p) => (
               <article key={p.title} className="group glass rounded-2xl overflow-hidden hover:border-primary/50 transition-all hover:-translate-y-1">
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <img src={p.img} alt={p.title} loading="lazy" width={800} height={600} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition" />
-                  <button className="absolute top-3 right-3 grid h-9 w-9 place-items-center rounded-full glass-strong opacity-0 group-hover:opacity-100 transition">
-                    <Eye className="h-4 w-4" />
-                  </button>
-                </div>
                 <div className="p-5">
-                  <h3 className="font-semibold">{p.title}</h3>
+                  <h3 className="font-semibold text-base">{p.title}</h3>
                   <p className="mt-1.5 text-xs text-muted-foreground leading-relaxed">{p.desc}</p>
                   <div className="mt-3 flex flex-wrap gap-1.5">
                     {p.tags.map((t) => (
@@ -58,11 +71,21 @@ export function Projects() {
                     ))}
                   </div>
                   <div className="mt-4 flex items-center gap-2">
-                    <a href="#" className="inline-flex items-center gap-1 rounded-full btn-neon px-3.5 py-1.5 text-xs font-medium text-white">
-                      Live Demo <ExternalLink className="h-3 w-3" />
-                    </a>
-                    <a href="#" className="inline-flex items-center gap-1 rounded-full glass border border-border px-3.5 py-1.5 text-xs">
+                    <a
+                      href={p.githubUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1 rounded-full glass border border-border px-3.5 py-1.5 text-xs"
+                    >
                       <Github className="h-3 w-3" /> Code
+                    </a>
+                    <a
+                      href={p.githubUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1 rounded-full btn-neon px-3.5 py-1.5 text-xs font-medium text-white"
+                    >
+                      Open Repo <ExternalLink className="h-3 w-3" />
                     </a>
                   </div>
                 </div>
